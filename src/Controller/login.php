@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="/../lib/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <!-- BOOSTRAP CSS IMPORT -->
     <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -96,7 +96,7 @@ src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
 integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
 crossorigin="anonymous">
 </script>
-<script type="text/javascript" src="/../lib/js/script.js">
+<script type="text/javascript" src="/js/script.js">
 </script>
 </body>
 </html>
