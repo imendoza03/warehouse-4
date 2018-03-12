@@ -12,11 +12,11 @@ Implement CRUD on something
 
 * Bonus:
 
-1pts use of class
-1 Clean architecture
-1pts use of composer
-1pts use of design patterns
-1pts clean code (PHPDocs)
+- 1pts use of class
+- 1 Clean architecture
+- 1pts use of composer
+- 1pts use of design patterns
+- 1pts clean code (PHPDocs)
 
 * Badge :
 
