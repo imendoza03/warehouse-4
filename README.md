@@ -21,3 +21,12 @@ Implement CRUD on something
 * Badge :
 
 Application tester (make phpunit tests)
+
+Application functionalities
+
+* Register users
+* Login users
+* Logout users
+* Display warehouse stock
+* Manage warehouse stock (CRUD);
+ 

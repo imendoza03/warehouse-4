@@ -1,0 +1,19 @@
+*{
+	box-sizing: border-box;
+}
+
+
+h1,form{
+	margin: auto;
+	width: 50%;
+}
+
+.app-name{
+	color:#e67e22;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+#not-registered small {
+	color: #2980b9!important;
+}

@@ -1,0 +1,20 @@
+{
+	"name" : "etudiant/warehouse-4",
+	"description" : "PHP application for warehouse management",
+	"type" : "project",
+	"require" : {
+		"phpunit/phpunit" : "7.0.2"
+	},
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "imendoza03",
+			"email" : "ivanmendoza@gmail.com"
+		}
+	],
+	"minimum-stability" : "dev",
+	"autoload" : {
+		"psr-4" : {
+			"" : "src/"
+		}
+	}
+}
