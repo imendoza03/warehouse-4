@@ -2,18 +2,44 @@
 	box-sizing: border-box;
 }
 
+#body{
+	background-color: #f9f9f9;
+}
 
-h1,form{
-	margin: auto;
-	width: 50%;
+h1{
+	width: 340px;
+  margin: 0 auto;
+	text-align: center;
+}
+
+#login-form, #registration-form{
+	padding: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid #d8dee2;
+	border-top: 1px solid #d8dee2;
+	border-radius: 5px;
+	width: 340px;
+  margin: 0 auto;
+}
+
+#registration-link small{
+	color: #0366d6!important;
+  text-decoration: none;
+	margin-top: 10px;
 }
 
 .app-name{
-	color:#e67e22;
+	margin-bottom: 15px;
+	color: #333;
+	text-align: center;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
 
-#not-registered small {
-	color: #2980b9!important;
+.close-button{
+	display: inline-block;
 }
