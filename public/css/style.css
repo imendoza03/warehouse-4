@@ -8,24 +8,26 @@
 
 h1{
 	width: 340px;
-  margin: 0 auto;
+  	margin: 0 auto;
 	text-align: center;
 }
 
+
 #login-form, #registration-form{
 	padding: 20px;
-  font-size: 14px;
-  background-color: #fff;
-  border: 1px solid #d8dee2;
+  	font-size: 14px;
+  	background-color: #fff;
+  	border: 1px solid #d8dee2;
 	border-top: 1px solid #d8dee2;
 	border-radius: 5px;
 	width: 340px;
-  margin: 0 auto;
+  	margin: 0 auto;
+  	margin-top: 30px;
 }
 
 #registration-link small{
 	color: #0366d6!important;
-  text-decoration: none;
+  	text-decoration: none;
 	margin-top: 10px;
 }
 
@@ -42,4 +44,8 @@ h1{
 
 .close-button{
 	display: inline-block;
+}
+
+.has-error{
+	color: #c0392b;
 }

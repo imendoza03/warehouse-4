@@ -1,10 +1,40 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $firstName = $_POST['signup-firstname'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
-    echo $firstName;
+    $firstName = $_POST['signup-firstname'] ?? null;
+    $lastName = $_POST['signup-lastname'] ?? null;
+    $username = $_POST['signup-username'] ?? null;
+    $password = $_POST['signup-password'] ?? null;
+    $confirmationPassword = $_POST['signup-password-confirm'] ?? null;
+    
+    $firstNameHasError = (is_string($firstName) && strlen($firstName) > 2);
+    $lastNameHasError = (is_string($lastName) && strlen($lastName) > 2);
+    $userNameHasError = (is_string($username) && strlen($username) > 2);
+    $passwordHasError = ($password == $confirmationPassword && strlen($password > 5));
+    
+    if ($firstNameHasError && $lastNameHasError && $userNameHasError && $passwordHasError) {
+        
+        try {
+            $connection = Service\DBConnector::getConnection();
+        } catch (PDOException $exception) {
+            http_response_code(500);
+            echo 'A problem occured, contact support';
+            exit(10);
+        }
+        
+        $sql = "INSERT INTO user(first_name, last_name, user_name, password) VALUES (\"$username\", \"$password\", \"$username\", \"$password\")";
+        $affected = $connection->exec($sql);
+        
+        if (! $affected) {
+            echo implode(', ', $connection->errorInfo());
+            return;
+        }
+        
+        return;
+    }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,24 +50,60 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	crossorigin="anonymous">
 </head>
 <body>
-	<form id="registration-form" action="/registration" method="POST">
+	<h1 class="app-name">Registration</h1>
+	<form id="registration-form" action="/index.php/registration"
+		method="POST">
+		<label for="signup-firstname">First name: </label> <input type="text"
+				class="form-control" name="signup-firstname"
+				placeholder="Enter first name..."
+				value="<?php echo htmlentities($firstName ?? '') ;?>">
 		<div class="form-group">
-			<label for="signup-firstname">First name: </label> <input type="text"
-				class="form-control" id="signup-firstname"
-				placeholder="first name...">
+
 		</div>
+		<?php if(!($firstNameHasError ?? true)){?>
+            <div class="has-error">
+			<p>First name is not correct, please enter at least 3 characters!</p>
+		</div>
+      	<?php }?>
 		<div class="form-group">
 			<label for="signup-lastname">Last name: </label> <input type="text"
-				class="form-control" id="signup-lastname" placeholder="last name...">
+				class="form-control" name="signup-lastname"
+				placeholder="Enter last name..."
+				value="<?php echo htmlentities($lastName ?? '') ;?>">
 		</div>
+		<?php if(!($lastNameHasError ?? true)){?>
+            <div class="has-error">
+			<p>Last name is not correct, please enter at least 3 characters!</p>
+		</div>
+      	<?php }?>
 		<div class="form-group">
 			<label for="signup-username">Username: </label> <input type="text"
-				class="form-control" id="signup-username" placeholder="Username">
+				class="form-control" name="signup-username"
+				placeholder="Enter user name..."
+				value="<?php echo htmlentities($username ?? '') ;?>">
+		</div>
+    	<?php if(!($userNameHasError ?? true)){?>
+            <div class="has-error">
+			<p>User name is not correct, please enter at least 3 characters!</p>
+		</div>
+      	<?php }?>
+		<div class="form-group">
+			<label for="signup-password">Password</label> <input type="password"
+				class="form-control" name="signup-password" placeholder="Password"
+				value="<?php echo htmlentities($password ?? '') ;?>">
 		</div>
 		<div class="form-group">
-			<label for="signup-assword">Password</label> <input type="password"
-				class="form-control" id="signup-assword" placeholder="Password">
+			<label for="signup-password-confirm">Confirmation Password</label> <input
+				type="password" class="form-control" name="signup-password-confirm"
+				placeholder="Confirm"
+				value="<?php echo htmlentities($confirmationPassword ?? '') ;?>">
 		</div>
+		<?php if(!($passwordHasError ?? true)){?>
+            <div class="has-error">
+			<p>Password is not correct, confirmation does not match / at least 6
+				characters!</p>
+		</div>
+      	<?php }?>
 		<button type="submit" class="btn btn-primary btn-block">Register</button>
 	</form>
 
@@ -56,4 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	</script>
 	<script type="text/javascript" src="/js/script.js"></script>
 </body>
+</html>
+
+
 
