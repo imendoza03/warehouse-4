@@ -1,4 +1,7 @@
 <?php
+
+namespace Controller;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $firstName = $_POST['signup-firstname'] ?? null;
@@ -13,23 +16,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $passwordHasError = ($password == $confirmationPassword && strlen($password > 5));
     
     if ($firstNameHasError && $lastNameHasError && $userNameHasError && $passwordHasError) {
-        try {
-            $connection = Service\DBConnector::getConnection();
-        } catch (PDOException $exception) {
-            http_response_code(500);
-            echo 'A problem occured, contact support';
-            exit(10);
-        }
         
-        $sql = "INSERT INTO user(first_name, last_name, user_name, password) VALUES (\"$username\", \"$password\", \"$username\", \"$password\")";
-        $affected = $connection->exec($sql);
         
-        if (! $affected) {
-            echo implode(', ', $connection->errorInfo());
-            return;
-        }
         
-        return;
+//         try {
+//             $connection = Service\DBConnector::getConnection();
+//         } catch (PDOException $exception) {
+//             http_response_code(500);
+//             echo 'A problem occured, contact support';
+//             exit(10);
+//         }
+        
+//         $sql = "INSERT INTO user(first_name, last_name, user_name, password) VALUES (\"$username\", \"$password\", \"$username\", \"$password\")";
+//         $affected = $connection->exec($sql);
+        
+//         if (! $affected) {
+//             echo implode(', ', $connection->errorInfo());
+//             return;
+//         }
+        
+//         return;
     }
 }
 ?>

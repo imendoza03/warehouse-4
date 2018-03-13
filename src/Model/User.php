@@ -2,6 +2,8 @@
 
 namespace Model;
 
+use Service\DBConnector;
+
 class User {
     
     private $id;
@@ -9,6 +11,20 @@ class User {
     protected $lastName;
     protected $username;
     protected $password;
+    protected $connection;
+    
+    public function __construct(){
+        
+        try {
+            $this->connection = DBConnector::getConnection();
+        }catch (\PDOException $e){
+            http_response_code(500);
+            echo $e->getMessage();
+            exit(1);
+        }
+        
+    }
+    
     /**
      * @return mixed
      */
@@ -83,5 +99,29 @@ class User {
     {
         $this->password = $password;
         return $this;
+    }
+    
+    
+    public static function getUsers($username){
+        
+        $query = "SELECT * FROM user WHERE user_name = :username";
+        
+        $statement = $this->connection->prepare($query);
+        
+        $statement->bindValue("user_name", $username);
+        
+        $statement->exec($statement);
+        
+        $records = $this->connection->exec($statement);
+        
+        $result = '';
+        if(!empty($records)){
+            foreach ($records as $record) {
+                $result = $record;
+            }
+        }
+        
+        return $result;
+        
     }
 }
