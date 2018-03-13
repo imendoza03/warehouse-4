@@ -7,8 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     
 }
-
-
 ?>
 
   <!DOCTYPE html>
@@ -32,9 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="form-group">
         <label for="username">Username</label> <input type="text"
         class="form-control" name="username" aria-describedby="usernameHelp"
-        placeholder="Enter username"> <small id="usernameHelp"
-        class="form-text text-muted">We'll never share your email with
-        anyone else.</small>
+        placeholder="Enter username">
       </div>
       <div class="form-group">
         <label for="password">Password</label> <input type="password"
