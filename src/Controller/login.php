@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Login</title>
 
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <!-- BOOSTRAP CSS IMPORT -->
@@ -35,10 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
         class="form-control" name="password" placeholder="Password">
       </div>
       <button type="submit" class="btn btn-success btn-block">Login</button>
-      <a id="registration-link" href="#">
-        <small class="form-text text-muted">Want to register?</small>
-      </a>
+      <?php echo "<a href='/index.php/registration'>Want to register?</a>";  ?>
     </form>
+    
 
 <!-- JQUERY AND BOOSTRAP SCRIPT IMPORT -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
