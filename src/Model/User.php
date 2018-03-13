@@ -11,7 +11,6 @@ class User {
     protected $lastName;
     protected $username;
     protected $password;
-<<<<<<< HEAD
     protected $connection;
     
     public function __construct(){
@@ -25,9 +24,6 @@ class User {
         }
         
     }
-=======
-    
->>>>>>> e9fa5213a0707a40443d09ba508cefd34114a0aa
     
     /**
      * @return mixed
