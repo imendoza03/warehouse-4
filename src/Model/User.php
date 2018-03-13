@@ -9,6 +9,8 @@ class User {
     protected $lastName;
     protected $username;
     protected $password;
+    
+    
     /**
      * @return mixed
      */
