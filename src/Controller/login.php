@@ -35,9 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
         class="form-control" name="password" placeholder="Password">
       </div>
       <button type="submit" class="btn btn-success btn-block">Login</button>
-      <a id="registration-link" href="http://www.google.com">
-      	Want to register?
-<!--         <small class="form-text text-muted">Want to register?</small> -->
+      <a id="registration-link" href="#">
+        <small class="form-text text-muted">Want to register?</small>
       </a>
     </form>
 
