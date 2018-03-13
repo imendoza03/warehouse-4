@@ -13,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $passwordHasError = ($password == $confirmationPassword && strlen($password > 5));
     
     if ($firstNameHasError && $lastNameHasError && $userNameHasError && $passwordHasError) {
-        
         try {
             $connection = Service\DBConnector::getConnection();
         } catch (PDOException $exception) {
