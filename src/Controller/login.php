@@ -1,7 +1,7 @@
 <?php
-// include_once __DIR__ . "/init.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+}
 
 
 ?>
@@ -23,13 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
   </head>
   <body id="body">
     <h1 class="app-name">Warehouse4</h1>
-    <form id="login-form" action="src/Controller/login.php" method="POST">
+    <form id="login-form" action="/login" method="POST">
       <div class="form-group">
         <label for="username">Username</label> <input type="text"
         class="form-control" id="username" aria-describedby="usernameHelp"
-        placeholder="Enter username"> <small id="usernameHelp"
-        class="form-text text-muted">We'll never share your email with
-        anyone else.</small>
+        placeholder="Enter username"> 
+<!--         <small id="usernameHelp" class="form-text text-muted"> -->
+<!--         		We'll never share your email with anyone else. -->
+<!--         </small> -->
       </div>
       <div class="form-group">
         <label for="password">Password</label> <input type="password"
@@ -53,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {}
           </button>
         </div>
         <div class="modal-body">
-          <form id="registration-form" action="src/Controller/register.php" method="POST">
+          <form id="registration-form" action="/registration" method="POST">
             <div class="form-group">
               <label for="signup-firstname">First name: </label>
               <input type="text" class="form-control" id="signup-firstname" placeholder="first name...">

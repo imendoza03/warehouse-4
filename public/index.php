@@ -6,7 +6,7 @@ use Service\DBConnector;
 DBConnector::setConfig($configs['db']);
 
 $map = [
-    '' => __DIR__ . '/../src/Controller/login.php',
+    '' => __DIR__ . '/../src/Controller/registration.php',
     '/login' => __DIR__ . '/../src/Controller/login.php',
     '/registration' => __DIR__ . '/../src/Controller/registration.php'
 ];
