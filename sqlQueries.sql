@@ -14,8 +14,8 @@ CREATE TABLE `warehouse4` . `stock` (
 	id int unsigned auto_increment primary key,
     product_name varchar(255) not null,
     description varchar(255),
-    amount varchar(255) not null,
-    creation_date datetime,
+    amount int not null,
+    creation_date datetime not null,
 	update_date datetime
 )
 engine = InnoDB
